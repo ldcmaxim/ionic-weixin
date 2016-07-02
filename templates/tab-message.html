@@ -1,0 +1,28 @@
+
+<ion-view class="weixin-bg-primary">
+  <ion-header-bar align-title="left" class="bar-dark">
+    <div class="h1 title">微信</div>
+    <div class="buttons">
+      <button class="button no-animation button-icon text-lg" ui-sref="search">
+        <i class="ion-android-search "></i>
+      </button>
+      <button class="button no-animation button-icon text-lg">
+        <i class="ion-android-add "></i>
+      </button>
+    </div>
+  </ion-header-bar>
+    <ion-content on-swipe-left="onSwipeLeft()" has-bouncing="false">
+        <ion-list weixin-close-back-drop>
+            <ion-item class="item-avatar weixin-message-item" ng-class="{'weixin-item-top': message.isTop}"
+                      on-hold="popupMessageOpthins(message)"     weixin-hold-active
+                      ng-repeat="message in messages | orderBy:['isTop', 'lastMessage.timeFrome1970']:true"
+                      ng-click="messageDetils(message)">
+                <img ng-src="{{message.pic}}">
+                <span class="weixin-sm-red-icon" ng-show="message.showHints"><span ng-bind="message.noReadMessages"></span></span>
+                <h2 ng-bind="message.name"></h2>
+                <p class="weixin-list-p" ng-bind="message.lastMessage.content"></p>
+                <span class="weixin-push-right" ng-bind="message.lastMessage.time"></span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

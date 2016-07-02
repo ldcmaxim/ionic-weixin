@@ -1,0 +1,51 @@
+
+<ion-view class="weixin-bg-white animated bounceInLeft ">
+  <ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+      <button class="button button-icon  text-lg" ui-sref="tab.find" >
+        <i class="ion-arrow-left-c"></i>
+      </button>
+    </div>
+    <div class="h1 title" >朋友圈</div>
+    <div class="buttons">
+      <button class="button button-icon text-lg">
+        <i class="ion-camera"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content  delegate-handle="messageDetailsScroll" id="message-detail-content">
+    <ion-refresher pulling-text="下拉刷新"  on-refresh="doRefresh()"
+                   pulling-icon="ion-arrow-down-c"></ion-refresher>
+    <div class="user-show-wall" >
+      <img class="user-pic-show" ng-src="{{userinfos[0].showWall}}" >
+      <div class="user-info">
+        <img ng-src="{{userinfos[0].head}}" class="weixin-user-pic">
+        <p ng-bind="userinfos[0].name"></p>
+      </div>
+    </div>
+    <ion-list class="weixin-list ">
+      <ion-item class="weixin-item item-adaption weixin-bg-white" ng-repeat="circlestate in circlestates" ng-class="{top-border-none:$index==1}">
+        <div class="weixin-headpic">
+          <img ng-src="{{circlestate.head}}">
+        </div>
+        <div class="item-content content-adaption">
+          <a ng-bind="circlestate.name" ></a>
+          <p ng-bind="circlestate.content" class="item-p"></p>
+          <div ng-class="{pictureone:circlestate.pictureLength==1,
+                picturemore:circlestate.pictureLength!==1}"
+                ng-repeat="picture in circlestate.picture">
+            <img ng-src="{{picture.url}}" >
+          </div>
+        </div>
+        <div class="item-footer">
+          <span class="small" ng-bind="circlestate.time"></span>
+            <span class="pull-right">
+              <i class="ion-ios-heart-outline"></i>
+              <i class="ion-ios-chatbubble-outline"></i>
+            </span>
+        </div>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

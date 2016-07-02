@@ -1,0 +1,44 @@
+
+<ion-view class="weixin-bg-white">
+  <ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+      <button class="button button-icon  text-lg" ng-click="goBack()" >
+        <i class="ion-arrow-left-c"></i>
+      </button>
+    </div>
+
+
+      <label class="item-input weixin-input-box border-bottom-green">
+        <button class="button button-icon text-lg">
+          <i class="ion-android-search"></i>
+        </button>
+        <input class=" text-white" msd-elastic ng-model="search_content" autofocus>
+        <button class="button button-icon text-lg " style="float:right">
+          <i class="ion-mic-a"></i>
+        </button>
+      </label>
+
+  </ion-header-bar>
+  <ion-content   has-bouncing="false">
+    <div class="row">
+      <div class="col ">
+        <div class="circle-icon text-center">
+          <i class="ion-aperture"></i>
+        </div>
+        <h3 class="text-center h6 text-muted">朋友圈</h3>
+      </div>
+      <div class="col">
+        <div class="circle-icon text-center">
+          <i class="ion-ios-book-outline"></i>
+        </div>
+        <h3 class="text-center h6 text-muted">文章</h3>
+      </div>
+      <div class="col">
+        <div class="circle-icon text-center">
+          <i class="ion-ios-person-outline"></i>
+        </div>
+        <h3 class="text-center h6 text-muted">公众号</h3>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,206 @@
+{
+    "messages": [{
+        "id": 8,
+        "name": "李白",
+        "pic": "img/headpic/libai.jpg",
+        "lastMessage": {
+            "originalTime": "2016-6-12 21:34:55",
+            "time": "",
+            "timeFrome1970": 0,
+            "content": "谁念西风独自凉，被酒莫惊春睡重,赌书消得泼茶香，当时只道是寻常。",
+            "isFromeMe": false
+        },
+        "noReadMessages": 1,
+        "showHints": true,
+        "isTop": 0,
+        "message": [{
+            "isFromeMe": true,
+            "content": "今天天气好啊",
+            "time": "2015-11-22 08:50:22"
+        }, {
+            "isFromeMe": true,
+            "content": "你在干嘛呢?",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "我刚写了一首诗",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": true,
+            "content": "哦?念来听听，",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "日照香炉生紫烟",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": false,
+            "content": "遥看瀑布挂前川",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "飞流直下三千尺",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": true,
+            "content": "疑是口水落九天",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "啊？",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": true,
+            "content": "我也写了一首诗，你给我看看",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": true,
+            "content": "床前明月光",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": true,
+            "content": "疑是地上霜",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "举头望明月",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": false,
+            "content": "低头思故乡?",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "打油诗，鉴定完毕",
+            "time": "2015-11-27 06:34:55"
+        }, {
+            "isFromeMe": true,
+            "content": "你行你来啊",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "谁念西风独自凉，被酒莫惊春睡重,赌书消得泼茶香，当时只道是寻常。",
+            "time": "2016-6-12 21:34:55"
+        }]
+    }, {
+        "id": 1,
+        "name": "小明",
+        "pic": "img/headpic/xiaoming.jpg",
+        "lastMessage": {
+            "originalTime": "2016-05-22 08:51:02",
+            "time": "",
+            "timeFrome1970": 0,
+            "content": "滚出去！",
+            "isFromeMe": true
+        },
+        "noReadMessages": 0,
+        "showHints": false,
+        "isTop": 0,
+        "message": [{
+            "isFromeMe": true,
+            "content": "小明，你借我的一块钱什么时候还？",
+            "time": "2015-11-22 08:50:22"
+        }, {
+            "isFromeMe": false,
+            "content": "这个得看你了",
+            "time": "2015-11-22 08:50:22"
+        }, {
+            "isFromeMe": true,
+            "content": "啊？",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "如果一个东西是我主动给别人的，那么给多少我都不心疼。可如果对方硬管我要，我就会很反感，宁可扔了也不想给了。",
+            "time": "2015-11-26 5:22:55"
+        }, {
+            "isFromeMe": true,
+            "content": "滚出去！",
+            "time": "2016-05-22 08:51:02"
+        }]
+    }, {
+        "id": 7,
+        "name": "老司机",
+        "pic": "img/headpic/laosiji.jpg",
+        "lastMessage": {
+            "originalTime": "2016-4-22 15:34:55",
+            "time": "",
+            "timeFrome1970": 0,
+            "content": "。。。",
+            "isFromeMe": false
+        },
+        "noReadMessages": 0,
+        "showHints": false,
+        "isTop": 0,
+        "message": [{
+            "isFromeMe": true,
+            "content": "有个问题想请教",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "说吧",
+            "time": "2015-11-22 08:50:22"
+        }, {
+            "isFromeMe": true,
+            "content": "怎样才能结束单身呢？",
+            "time": "2015-11-22 08:51:02"
+        }, {
+            "isFromeMe": false,
+            "content": "。。。",
+            "time": "2016-4-22 15:34:55"
+        }]
+    }, {
+        "id": 2,
+        "name": "老王",
+        "pic": "img/headpic/laowang.png",
+        "lastMessage": {
+            "originalTime": "2016-03-21 15:34:55",
+            "time": "",
+            "timeFrome1970": 0,
+            "content": "我是打酱油的",
+            "isFromeMe": false
+        },
+        "noReadMessages": 1,
+        "showHints": false,
+        "isTop": 0,
+        "message": [{
+          "isFromeMe": false,
+          "content": "你好!",
+          "time": "2015-11-22 08:50:22"
+        }, {
+          "isFromeMe": true,
+          "content": "你好, 你是谁?",
+          "time": "2015-11-22 08:51:02"
+        }, {
+          "isFromeMe": false,
+          "content": "我是打酱油的",
+          "time": "2016-03-22 15:34:55"
+        }]
+    }, {
+        "id": 6,
+        "name": "刘德华",
+        "pic": "img/headpic/liudehua.jpg",
+        "lastMessage": {
+            "originalTime": "2016-6-11 15:34:55",
+            "time": "",
+            "timeFrome1970": 0,
+            "content": "快点啊",
+            "isFromeMe": false
+        },
+        "noReadMessages": 1,
+        "showHints": true,
+        "isTop": 0,
+        "message": [{
+          "isFromeMe": false,
+          "content": "楼下有你的快递!",
+          "time": "2015-11-22 08:50:22"
+        }, {
+          "isFromeMe": true,
+          "content": "好的，马上下来",
+          "time": "2015-11-22 08:51:02"
+        }, {
+          "isFromeMe": false,
+          "content": "快点啊",
+          "time": "2016-06-11 15:34:55"
+        }]
+    }]
+}

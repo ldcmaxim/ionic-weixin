@@ -1,0 +1,50 @@
+{
+    "circlestates": [
+      {
+        "id": 8,
+        "name": "李白",
+        "head": "img/headpic/libai.jpg",
+        "content": "日出汨罗欲赛龙，遥祭屈原投江中！",
+        "time": "2016-06-09 7:34:55",
+        "pictureLength":1,
+        "picture": [
+          {"url": "img/circle/5.jpg"}
+        ]
+      },
+      {
+        "id": 8,
+        "name": "老司机",
+        "head": "img/headpic/laosiji.jpg",
+        "content": "想到节假日出行堵，没想到节假日前一天也这么堵",
+        "time": "2016-06-08 18:34:55",
+        "pictureLength":4,
+        "picture": [
+          {"url": "img/circle/huangshan1.jpg"},
+          {"url": "img/circle/huangshan1.jpg"},
+          {"url": "img/circle/huangshan1.jpg"},
+          {"url": "img/circle/huangshan1.jpg"}
+        ]
+      },
+      {
+        "id": 8,
+        "name": "小明",
+        "head": "img/headpic/xiaoming.jpg",
+        "content": "今天马上要高考了，我还没睡着！好担心呀！高考完了我就得升五年级了",
+        "time": "2016-06-07 06:34:55",
+        "pictureLength":2,
+        "picture": [
+          {"url": "img/circle/5.jpg"},
+          {"url": "img/circle/5.jpg"}
+        ]
+      },
+      {
+        "id": 8,
+        "name": "刘德华",
+        "head": "img/headpic/liudehua.jpg",
+        "content": "周末好多人啊，看来我的人气还是很旺啊",
+        "time": "2016-06-04 06:34:55",
+        "pictureLength":0,
+        "picture": []
+      }
+    ]
+}

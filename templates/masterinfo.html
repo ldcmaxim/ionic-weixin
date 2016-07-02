@@ -1,0 +1,52 @@
+
+<ion-view weixin-close-back-drop>
+  <ion-header-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+      <button class="button button-icon  text-lg" ui-sref="tab.setting" >
+        <i class="ion-arrow-left-c"></i>
+      </button>
+    </div>
+    <div class="h1 title" >个人信息</div>
+  </ion-header-bar>
+  <ion-content class="weixin-stable-content" delegate-handle="masterinfoScroll" id="masterinfo-content">
+    <div class="weixin-list-gap"></div>
+    <ion-list class=""  >
+      <ion-item class=" top-border-none">
+        <span class="text-black masterinfo-head">头像</span>
+        <span class=" masterinfo-head pull-right"><img ng-src="{{userinfos[0].head}}"></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">昵称</span>
+        <span ng-bind="userinfos[0].name" class="small pull-right"></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">微信号</span>
+        <span ng-bind="userinfos[0].account" class="small pull-right"></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">二维码名片</span>
+        <span ng-bind="userinfos[0].QRcodes" class="small pull-right"><i class="ion-ios-paw-outline"></i></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">我的地址</span>
+        <span ng-bind="userinfos[0].myPlace" class="small pull-right"></span>
+      </ion-item>
+    </ion-list>
+    <div class="weixin-list-gap"></div>
+    <ion-list  >
+      <ion-item class="top-border-none" ng-click="genderPopup()">
+        <span class="text-black">性别</span>
+        <span ng-bind="userinfos[0].gender" class="small pull-right"></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">地区</span>
+        <span ng-bind="userinfos[0].city" class="small pull-right"></span>
+      </ion-item>
+      <ion-item >
+        <span class="text-black">个性签名</span>
+        <span ng-bind="userinfos[0].personalSign" class="small pull-right"></span>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

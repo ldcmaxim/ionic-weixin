@@ -1,0 +1,95 @@
+
+<ion-view class="animated bounceInLeft">
+  <ion-header-bar align-title="left" class="bar-dark">
+    <div class="h1 title">微信</div>
+    <div class="buttons">
+      <button class="button no-animation button-icon text-lg" ui-sref="search">
+        <i class="ion-android-search "></i>
+      </button>
+      <button class="button no-animation button-icon text-lg">
+        <i class="ion-android-add "></i>
+      </button>
+    </div>
+  </ion-header-bar>
+    <ion-content on-swipe-right="onSwipeRight()" class="weixin-bg-primary" has-bouncing="false">
+        <div class="weixin-list-gap"></div>
+        <ion-list class="weixin-list " >
+          <ion-item class="weixin-item top-border-none"  ng-click="onMasterInfo()" >
+            <div class="weixin-headpic">
+              <img ng-src="{{userinfos[0].head}}" >
+            </div>
+            <div class="item-content">
+              <h2 ng-bind="userinfos[0].name"></h2>
+              <p class="weixin-message small" >微信号：<span ng-bind="userinfos[0].account"></span></p>
+            </div>
+          </ion-item>
+        </ion-list>
+        <div class="weixin-list-gap"></div>
+        <ion-list class="weixin-list">
+          <ion-item class="weixin-item top-border-none">
+            <div class="weixin-headpic text-sky">
+              <i class="ion-image"></i>
+            </div>
+
+            <div class="item-content">
+              <h2 class="item-middle">相册</h2>
+            </div>
+          </ion-item>
+          <ion-item class="weixin-item">
+            <div class="weixin-headpic text-sky">
+              <i class="ion-cube"></i>
+            </div>
+
+            <div class="item-content">
+              <h2 class="item-middle">收藏</h2>
+            </div>
+          </ion-item>
+        </ion-list>
+        <div class="weixin-list-gap"></div>
+        <ion-list class="weixin-list text-sky">
+          <ion-item class="weixin-item top-border-none">
+            <div class="weixin-headpic text-red">
+              <i class="ion-ios-bookmarks"></i>
+            </div>
+
+            <div class="item-content">
+              <h2 class="item-middle">钱包</h2>
+            </div>
+          </ion-item>
+          <ion-item class="weixin-item">
+            <div class="weixin-headpic text-green">
+              <i class="ion-card"></i>
+            </div>
+
+            <div class="item-content">
+              <h2 class="item-middle">卡劵</h2>
+            </div>
+          </ion-item>
+        </ion-list>
+        <div class="weixin-list-gap"></div>
+        <ion-list class="weixin-list">
+          <ion-item class="weixin-item top-border-none">
+            <div class="weixin-headpic text-orange">
+              <i class="ion-happy"></i>
+            </div>
+            <div class="item-content">
+              <h2 class="item-middle">表情</h2>
+            </div>
+          </ion-item>
+
+        </ion-list>
+      <div class="weixin-list-gap"></div>
+        <ion-list class="weixin-list">
+          <ion-item class="weixin-item top-border-none">
+            <div class="weixin-headpic text-sky">
+              <i class="ion-gear-b"></i>
+            </div>
+            <div class="item-content">
+              <h2 class="item-middle">设置</h2>
+            </div>
+
+          </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

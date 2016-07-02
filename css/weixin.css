@@ -1,0 +1,416 @@
+/* Empty. Add your own CSS if you like */
+.weixin-bg-primary{
+  background: #eeeeee !important;
+}
+.weixin-bg-white{
+  background:#f8f8f8 !important;
+}
+.weixin-bg-orange {
+  background-color: orange !important;
+}
+.weixin-bg-light-green {
+  background-color: #52d418 !important;
+}
+.weixin-bg-green {
+  background-color: green !important;
+}
+.weixin-bg-sky {
+  background-color: #458cca;
+}
+.text-orange{
+  color: orange !important;
+}
+.text-sky{
+  color: #458cca !important;
+}
+.text-red {
+  color: red !important;
+}
+.text-green{
+  color: green !important;
+}
+.text-white{
+  color:#ffffff !important;
+}
+.text-black{
+  color:#000000 !important;
+}
+.text-muted{
+  color:#777777 !important;
+}
+.text-lg{
+  font-size:1.6rem !important;
+}
+.strong{
+  font-weight:bold;
+}
+.small{
+  font-size:80%;
+}
+.pull-left{
+  float:left
+}
+.pull-right{
+  float:right
+}
+.circle-icon{
+  position:relative;
+  left:50%;
+  margin-left:-1.5rem;
+  margin-top:3rem;
+  width:3rem;
+  height:3rem;
+  line-height:3rem;
+  font-size:1.5rem;
+  background-color: #ffffff;
+  color:#555555;
+  border-radius: 50%;
+}
+
+
+.border-bottom-green{
+  border-bottom:1px solid #63db34 !important;
+}
+.border-bottom-gray{
+  border-bottom:1px solid gray !important;
+}
+
+
+.weixin-message-item{
+  /*margin:0 !important;*/
+  padding-top:0.5rem !important;
+  padding-bottom:0.5rem !important;
+  height:4rem !important;
+  padding-left:4.3rem !important;
+}
+.weixin-message-item img{
+  position: absolute;
+  border-radius:0 !important;
+  max-width: 3rem !important;
+  max-height: 3rem !important;
+  height:3rem !important;
+  top:0.5rem !important;
+  left:0.8rem !important;
+}
+.weixin-push-right {
+  position: absolute;
+  right: 0;
+  top: 0.8rem;
+  color: #8c8c8c;
+  font-size: 0.8rem; }
+
+.item .weixin-list-p {
+  font-size: 0.8rem;
+  color: #6a6a6a; }
+
+.item.weixin-popup {
+  padding: 1rem 1rem 1rem 1.5rem;
+}
+
+.popup-head {
+  padding: 0 !important;
+  border-bottom: none !important; }
+
+.popup-body {
+  padding: 0 !important;
+  overflow: hidden !important; }
+
+.scroll-bar-indicator {
+  display: none; }
+
+.item > .weixin-sm-red-icon {
+  position: absolute;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #ff4336;
+  line-height: 1rem;
+  text-align: center;
+  top: 0.3rem;
+  left: 3rem;
+  font-size:0.5rem;
+  font-weight:bolder;
+  color:#ffffff;
+}
+
+.item > .weixin-sm-red-icon > p {
+  color: #ffffff;
+  font-size: 0.6rem; }
+
+/*.weixin-item-top {*/
+  /*background-color: #F1F1F1 !important; }*/
+
+.weixin-stable-content {
+  background-color: #EEE; }
+
+.bar-footer {
+  border-top: 1px solid #EEE !important; }
+
+.bar-footer textarea {
+  resize: none;
+  height: 1.5rem;
+  max-height: 5rem; }
+
+.bar-footer .item-input {
+  border: none !important;
+  border-bottom: 1px solid #EEE !important; }
+
+.weixin-footer-btn {
+  position: absolute !important;
+  bottom: -1px;
+  right: 0.4rem; }
+.weixin-input-box{
+  display:flex;
+  flex: 1;
+  padding:0.4rem 0 !important;
+}
+.weixin-input-box input{
+  border:none;
+  padding:0;
+
+}
+
+
+
+.weixin-message-wrap {
+  padding: 0.5rem;
+  overflow: auto;
+  position: relative; }
+
+.weixin-message-wrap .weixin-head-pic,
+.weixin-message-wrap .weixin-head-pic-right {
+  max-height: 3rem;
+  max-width: 3rem; }
+
+.weixin-message-wrap .weixin-head-pic {
+  float: left; }
+
+.weixin-message-wrap .weixin-head-pic-right {
+  float: right; }
+
+.weixin-message-wrap .weixin-message,
+.weixin-message-wrap .weixin-message-right {
+  padding: 0.5rem;
+  line-height: 1.5rem;
+  max-width: 12rem;
+  font-size:0.8rem;
+  border-radius: 0.3rem; }
+
+.weixin-message-wrap .weixin-message {
+  float: left;
+  margin-left: 0.7rem;
+  background-color: #ffffff; }
+
+.weixin-message-wrap .weixin-message-right {
+  float: right;
+  margin-right: 0.7rem;
+  background-color: #6BE00B; }
+
+.weixin-message-wrap .weixin-triangle-left,
+.weixin-message-wrap .weixin-triangle-right {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-width: 0.5rem 0.7rem;
+  border-style: solid;
+  top: 1.2rem; }
+
+.weixin-message-wrap .weixin-triangle-left {
+  left: 3rem;
+  border-color: transparent #FFF transparent transparent; }
+
+.weixin-message-wrap .weixin-triangle-right {
+  right: 3rem;
+  border-color: transparent transparent transparent #6BE00B; }
+
+.weixin-message-time {
+  width: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+  margin-left: auto;
+  margin-right: auto; }
+
+.weixin-send-button {
+  margin-top:0.3rem;
+  background:transparent;
+  color: #444;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size:0.8rem;
+  border-radius: 10%;
+  text-align: center;
+  width: 49px;
+  bottom:0;
+}
+
+/* weixin-list weixin-item weixin-headpic item-content */
+
+.weixin-list .list {
+  background: #ffffff;
+  margin-top: -1px;
+}
+
+.weixin-list .list .weixin-item {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding-left: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height:3.5rem;
+}
+.weixin-list-gap {
+  background-color: #eeeeee;
+  padding-left: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 80%;
+  color: #545454;
+}
+
+.weixin-contacts-list .list{
+  padding-right: 1.5rem !important;
+}
+.item-middle{
+  line-height:2.5rem;
+}
+
+.weixin-item .weixin-headpic {
+  position:absolute;
+  margin:0;
+  padding:0;
+  color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem !important;
+  left:0.5rem ;
+
+  font-size: 1.5rem;
+  text-align: center;
+}
+.weixin-item .weixin-headpic img,.masterinfo-head img{
+  width:100%;
+  height:100%;
+}
+.headpic-lg{
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+}
+.weixin-item .item-content {
+  margin-left:3.5rem;
+  white-space:normal !important;
+}
+.item-adaption{
+  height:100% !important;
+}
+.item-adaption .item{
+  white-space:normal !important;
+}
+
+.content-adaption p{
+  overflow:auto;
+  word-wrap:break-word ;
+  white-space:pre-wrap !important;
+  text-overflow:clip !important;
+}
+.weixin-item .has-headpic-lg {
+  margin-left:5rem;
+  padding-top:0.3rem;
+}
+.item-content span,p,h1,h2,h3,h4,h5,h6{
+  padding:0;
+  margin:0;
+}
+.item-content p{
+  font-size:0.8rem;
+}
+/* 微信朋友圈图片样式 */
+.pictureone{
+  max-height:12rem;
+  max-width:12rem;
+  overflow:hidden;
+}
+.picturemore{
+  width:5rem;
+  height:5rem;
+  margin-right:0.2rem;
+  margin-bottom:0.2rem;
+  float:left;
+  overflow:hidden;
+}
+.picturemore:after, .picturemore:after{
+  clear:both;
+}
+.pictureone img,.picturemore img{
+  width:100%;
+  height:100%;
+}
+.item-footer{
+  margin-left:3.5rem;
+}
+.top-border-none{
+  border-top:none;
+}
+.item-p{
+  font-size:1rem !important;
+  color:#000000 !important;
+  padding:0.5rem 0 !important;
+}
+/*主人信息展示页*/
+.masterinfo-head{
+  width:2.5rem;
+  height:2.5rem;
+  line-height:2.5rem;
+}
+
+/* 微信联系人 */
+
+.weixin-contacts-right-bar {
+  position: fixed;
+  right: 0;
+  width: 1.5rem;
+  height: 100%;
+  z-index: 2;
+  text-align: center;
+  font-size: 80%;
+  color: #545454;
+}
+
+.weixin-contacts-right-bar div {
+  height: 1.2rem; }
+
+/*朋友圈*/
+.user-show-wall{
+  position: relative;
+  height:14rem;
+  background: #f8f8f8;
+}
+.user-show-wall .user-pic-show{
+  width:100%;
+  height:11.5rem;
+}
+.user-show-wall .user-info{
+  position: absolute;
+  width:100%;
+  bottom:0;
+}
+.user-show-wall .user-info .weixin-user-pic{
+  float:right;
+  right:0;
+  width:4rem;
+  height:4rem;
+  margin:1rem;
+  border:2px solid #ffffff;
+}
+.user-show-wall .user-info p{
+  float:right;
+  line-height:5rem;
+}
+/* 文字不折行 */
+.text-wrap{}

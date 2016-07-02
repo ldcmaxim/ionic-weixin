@@ -1,0 +1,142 @@
+<ion-header-bar align-title="left" class="bar-dark">
+  <div class="h1 title">微信</div>
+  <div class="buttons">
+    <button class="button no-animation button-icon text-lg" ui-sref="search">
+      <i class="ion-android-search "></i>
+    </button>
+    <button class="button no-animation button-icon text-lg">
+      <i class="ion-android-add "></i>
+    </button>
+  </div>
+</ion-header-bar>
+<ion-view class="weixin-bg-primary animated fadeIn">
+    <ion-content on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()" has-bouncing="false">
+        <ion-list class="weixin-list  weixin-contacts-list">
+            <ion-item class="weixin-item top-border-none">
+                <div class="weixin-headpic weixin-bg-orange">
+                    <i class="ion-person-add"></i>
+                </div>
+                <div class="item-content">
+                    <h2 class="item-middle">新的朋友</h2>
+                </div>
+
+            </ion-item>
+            <ion-item class="weixin-item">
+                 <div class="weixin-headpic weixin-bg-green">
+                     <i class="ion-person-stalker"></i>
+                 </div>
+                 <div class="item-content">
+                    <h2 class="item-middle">群聊</h2>
+                </div>
+             </ion-item>
+             <ion-item class="weixin-item">
+                 <div class="weixin-headpic weixin-bg-sky">
+                     <i class="ion-ios-pricetag"></i>
+                 </div>
+                 <div class="item-content">
+                    <h2 class="item-middle">标签</h2>
+                </div>
+
+             </ion-item>
+             <ion-item class="weixin-item">
+                  <div class="weixin-headpic weixin-bg-sky">
+                      <i class="ion-person-add"></i>
+                  </div>
+                  <div class="item-content">
+                    <h2 class="item-middle">公众号</h2>
+                </div>
+
+             </ion-item>
+        </ion-list>
+        <ion-list >
+            <div class="weixin-list-gap">L</div>
+
+            <ion-list class="weixin-list weixin-contacts-list">
+                    <ion-item class="weixin-item top-border-none">
+                        <div class="weixin-headpic">
+                            <img src="img/headpic/libai.jpg">
+                        </div>
+                        <div class="item-content">
+                          <h2 class="item-middle">李白</h2>
+                        </div>
+
+                    </ion-item>
+                    <ion-item class="weixin-item">
+                        <div class="weixin-headpic">
+                          <img src="img/headpic/liudehua.jpg" class="weixin-head-pic">
+                        </div>
+                        <div class="item-content">
+                          <h2 class="item-middle">刘德华</h2>
+                        </div>
+
+                    </ion-item>
+                    <ion-item class="weixin-item">
+                        <div class="weixin-headpic">
+                            <img src="img/headpic/laosiji.jpg">
+                        </div>
+                        <div class="item-content">
+                          <h2 class="item-middle">老司机</h2>
+                        </div>
+
+                    </ion-item>
+                    <ion-item class="weixin-item">
+                      <div class="weixin-headpic">
+                        <img src="img/headpic/laowang.png">
+                      </div>
+                      <div class="item-content">
+                          <h2 class="item-middle">老王</h2>
+                        </div>
+
+                    </ion-item>
+                </ion-list>
+
+            <div class="weixin-list-gap">X</div>
+
+            <ion-list class="weixin-list weixin-contacts-list">
+                <ion-item class="weixin-item top-border-none">
+                    <div class="weixin-headpic">
+                        <img src="img/headpic/xiaoming.jpg">
+                    </div>
+                    <div class="item-content">
+                          <h2 class="item-middle">小明</h2>
+                        </div>
+
+                </ion-item>
+          </ion-list>
+
+        </ion-list>
+        </ion-content>
+
+        <div class="weixin-contacts-right-bar" weixin-position-middle on-drag="contacts_right_bar_swipe($event)">
+            <div>&uarr;</div>
+            <div>☆</div>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+            <div>E</div>
+            <div>F</div>
+            <div>G</div>
+            <div>H</div>
+            <div>I</div>
+            <div>J</div>
+            <div>K</div>
+            <div>L</div>
+            <div>M</div>
+            <div>N</div>
+            <div>O</div>
+            <div>P</div>
+            <div>Q</div>
+            <div>R</div>
+            <div>S</div>
+            <div>T</div>
+            <div>U</div>
+            <div>V</div>
+            <div>W</div>
+            <div>X</div>
+            <div>Y</div>
+            <div>Z</div>
+            <div>#</div>
+        </div>
+
+</ion-view>

@@ -1,0 +1,62 @@
+<ion-view>
+  <ion-header-bar align-title="left" class="bar-dark">
+      <div class="buttons">
+          <button class="button button-icon text-lg " ui-sref="tab.message" >
+            <i class="ion-arrow-left-c"></i>
+          </button>
+      </div>
+      <div class="h1 title" ng-bind="message.name"></div>
+      <div class="buttons">
+          <button class="button button-icon text-lg ">
+            <i class="ion-person"></i>
+          </button>
+      </div>
+  </ion-header-bar>
+  <ion-content class="weixin-stable-content" delegate-handle="messageDetailsScroll" id="message-detail-content" >
+    <ion-refresher pulling-text="下拉刷新"  on-refresh="doRefresh()"
+                   pulling-icon="ion-arrow-down-c"></ion-refresher>
+      <div ng-repeat="item in messageDetils">
+        <p class="weixin-message-time" ng-bind="item.time" ng-if="false"></p>
+          <div class="weixin-message-wrap" ng-if="!item.isFromeMe">
+              <img ng-src="{{message.pic}}" class="weixin-head-pic">
+              <span class="weixin-triangle-left"></span>
+              <p class="weixin-message" ng-bind="item.content"></p>
+          </div>
+          <div class="weixin-message-wrap" ng-if="item.isFromeMe">
+              <img src="img/headpic/master.jpg" class="weixin-head-pic-right">
+              <span class="weixin-triangle-right"></span>
+              <p class="weixin-message-right" ng-bind="item.content"></p>
+          </div>
+      </div>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-light" resize-foot-bar>
+      <!-- <div class="buttons weixin-footer-buttons-left">
+          <button class="button button-icon icon ion-ios-mic-outline">
+          </button>
+      </div> -->
+      <div class="buttons">
+          <button class="button button-icon  text-lg">
+            <i class="ion-ios-mic-outline"></i>
+          </button>
+      </div>
+      <label class=" item-input weixin-input-box border-bottom-green">
+          <input msd-elastic ng-model="send_content">
+          <div class="buttons">
+              <button class="weixin-footer-btn button button-icon  ">
+                <i class="ion-happy-outline"></i>
+              </button>
+          </div>
+      </label>
+
+      <div class="buttons" ng-show="!send_content || send_content === ''">
+          <div class="weixin-send-button   text-lg">
+            <i class="ion-ios-plus-outline"></i>
+          </div>
+      </div>
+      <div class=" weixin-send-button weixin-bg-light-green text-white" ng-hide="!send_content || send_content === ''"
+          ng-click="sendMessage(send_content)">
+          发送
+      </div>
+
+  </ion-footer-bar>
+</ion-view>
