@@ -2,7 +2,7 @@
 <ion-view class="weixin-bg-white">
   <ion-header-bar align-title="left" class="bar-dark">
     <div class="buttons">
-      <button class="button button-icon  text-lg" ng-click="goBack()" >
+      <button class="button button-icon  text-lg" ng-click="goBack()" nav-direction="back">
         <i class="ion-arrow-left-c"></i>
       </button>
     </div>
@@ -12,7 +12,7 @@
         <button class="button button-icon text-lg">
           <i class="ion-android-search"></i>
         </button>
-        <input class=" text-white" msd-elastic ng-model="search_content" autofocus>
+        <input class=" text-white" msd-elastic ng-model="search_content" type="search" autofocus>
         <button class="button button-icon text-lg " style="float:right">
           <i class="ion-mic-a"></i>
         </button>

@@ -42,7 +42,7 @@ angular.module('weixin.routes', [])
         })
         .state('friendsCircle', {
             url: '/friendsCircle',
-            templateUrl: 'templates/friends-circle.html',
+            templateUrl: 'templates/friendsCircle.html',
             controller: "friendsCircleCtrl"
         })
         .state('tab.setting', {

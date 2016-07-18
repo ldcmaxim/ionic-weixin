@@ -3,7 +3,7 @@
   <ion-header-bar align-title="left" class="bar-dark">
     <div class="h1 title">微信</div>
     <div class="buttons">
-      <button class="button no-animation button-icon text-lg" ui-sref="search">
+      <button class="button no-animation button-icon text-lg" ui-sref="search" nav-direction="forward">
         <i class="ion-android-search "></i>
       </button>
       <button class="button no-animation button-icon text-lg">
@@ -16,17 +16,17 @@
         <ion-list class="weixin-list " >
           <ion-item class="weixin-item top-border-none"  ng-click="onMasterInfo()" >
             <div class="weixin-headpic">
-              <img ng-src="{{userinfos[0].head}}" >
+              <img ng-src="{{masterinfo.head}}" >
             </div>
             <div class="item-content">
-              <h2 ng-bind="userinfos[0].name"></h2>
-              <p class="weixin-message small" >微信号：<span ng-bind="userinfos[0].account"></span></p>
+              <h2 ng-bind="masterinfo.name"></h2>
+              <p class="weixin-message small" >微信号：<span ng-bind="masterinfo.account"></span></p>
             </div>
           </ion-item>
         </ion-list>
         <div class="weixin-list-gap"></div>
         <ion-list class="weixin-list">
-          <ion-item class="weixin-item top-border-none">
+          <ion-item class="weixin-item top-border-none" ng-click="openWeibo()">
             <div class="weixin-headpic text-sky">
               <i class="ion-image"></i>
             </div>
@@ -35,7 +35,7 @@
               <h2 class="item-middle">相册</h2>
             </div>
           </ion-item>
-          <ion-item class="weixin-item">
+          <ion-item class="weixin-item" ng-click="openWeibo()">
             <div class="weixin-headpic text-sky">
               <i class="ion-cube"></i>
             </div>
@@ -47,16 +47,16 @@
         </ion-list>
         <div class="weixin-list-gap"></div>
         <ion-list class="weixin-list text-sky">
-          <ion-item class="weixin-item top-border-none">
+          <ion-item class="weixin-item top-border-none" ng-click="openWeibo()">
             <div class="weixin-headpic text-red">
               <i class="ion-ios-bookmarks"></i>
             </div>
 
-            <div class="item-content">
+            <div class="item-content" >
               <h2 class="item-middle">钱包</h2>
             </div>
           </ion-item>
-          <ion-item class="weixin-item">
+          <ion-item class="weixin-item" ng-click="openWeibo()">
             <div class="weixin-headpic text-green">
               <i class="ion-card"></i>
             </div>
@@ -68,19 +68,19 @@
         </ion-list>
         <div class="weixin-list-gap"></div>
         <ion-list class="weixin-list">
-          <ion-item class="weixin-item top-border-none">
+          <ion-item class="weixin-item top-border-none" ng-click="openWeibo()">
             <div class="weixin-headpic text-orange">
-              <i class="ion-happy"></i>
+              <i class="ion-social-vimeo"></i>
             </div>
             <div class="item-content">
-              <h2 class="item-middle">表情</h2>
+              <h2 class="item-middle">微博</h2>
             </div>
           </ion-item>
 
         </ion-list>
       <div class="weixin-list-gap"></div>
         <ion-list class="weixin-list">
-          <ion-item class="weixin-item top-border-none">
+          <ion-item class="weixin-item top-border-none" ng-click="openWeibo()">
             <div class="weixin-headpic text-sky">
               <i class="ion-gear-b"></i>
             </div>

@@ -1,5 +1,28 @@
 angular.module('weixin.services', [])
-
+.factory('localDataService', ['$http','messageService','userInfoService','friendCircleService',
+  function($http,messageService,userInfoService,friendCircleService) {
+    return {
+      init:function(){
+        var isWebView = ionic.Platform.isWebView();
+        var url = "";
+        if (ionic.Platform.isAndroid()&&isWebView) {
+          url = "/android_asset/www/";
+        }
+        $http.get(url + "data/json/messages.json").then(function(response) {
+          // localStorageService.update("messages", response.data.messages);
+          messageService.init(response.data.messages);
+        });
+        $http.get(url + "data/json/userinfos.json").then(function(response) {
+          // localStorageService.update("userinfos", response.data.userinfos);
+          userInfoService.init(response.data.userinfos);
+        });
+        $http.get(url + "data/json/circlestates.json").then(function(response) {
+          // localStorageService.update("circlestates", response.data.circlestates);
+          friendCircleService.init(response.data.circlestates);
+        });
+      }
+    };
+  }])
 .factory('localStorageService', [function() {
         return {
             get: function localStorageServiceGet(key, defaultValue) {
@@ -72,7 +95,6 @@ angular.module('weixin.services', [])
                 console.log("messages is null");
                 return null;
             }
-
         },
         getNowDate: function() {
             var nowDate = {};
@@ -173,7 +195,9 @@ angular.module('weixin.services', [])
                 var messages = [];
                 var message = localStorageService.get("message_" + id).message;
                 var length = 0;
-                if(num < 0 || !message) return;
+                if(num < 0 || !message){
+                    return;
+                }
                 length = message.length;
                 if(num < length){
                     messages = message.splice(length - num, length);
@@ -215,28 +239,56 @@ angular.module('weixin.services', [])
         };
     }
 ])
-.factory('userService', ['localStorageService','$http',function(localStorageService,$http) {
+.factory('userInfoService', ['localStorageService',function(localStorageService) {
   return {
-      init: function() {
-        var url = "";
-        if (ionic.Platform.isAndroid()) {
-          url = "/android_asset/www/";
+      init: function(userinfos) {
+        var userID=[];
+        var i=0;
+        var length=0;
+        if(userinfos){
+          length=userinfos.length;
+          for(i;i<length;i++){
+            localStorageService.update("user_"+userinfos[i].id,userinfos[i]);
+            userID.push(
+              {"id":userinfos[i].id}
+            );
+          }
+          localStorageService.update("userID",userID);
         }
-        var userinfo;
-        $http.get(url + "data/json/userinfo.json").then(function(response){
-            console.log("userinfo:"+response.data.userinfo);
-        });
       },
-      getMasterInfo: function() {
-
-      }
+    getUserInfoById: function(id) {
+      var userinfo=localStorageService.get("user_"+id);
+      return userinfo;
+    }
   };
 }])
 
-.factory('circleService', ['localStorageService',function(localStorageService) {
+.factory('friendCircleService', ['localStorageService','$http',function(localStorageService) {
     return {
-        getcirclestates: function(circlestates) {
-            return circlestates;
+        init:function(circleStates){
+          var stateID=[];
+          var i=0;
+          var length=circleStates.length;
+          if(circleStates){
+            for(i;i<length;i++){
+              localStorageService.update("state_"+circleStates[i].id,circleStates[i]);
+              stateID.push(
+                {"id":circleStates[i].id}
+              );
+            }
+            localStorageService.update("stateID",stateID);
+          }
+        },
+        getCircleState: function() {
+          var stateID=localStorageService.get("stateID");
+          var i=0;
+          var length=stateID.length;
+          var circleStates=new Array();
+          for(i;i<length;i++){
+            var circleState=localStorageService.get("state_"+stateID[i]);
+            circleStates.push(circleState);
+          }
+            return circleStates;
         }
     };
 }]);

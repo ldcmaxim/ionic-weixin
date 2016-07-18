@@ -1,0 +1,78 @@
+{
+    "userinfos": [
+        {
+            "id": "master",
+            "head": "img/headpic/master.jpg",
+            "name": "捕风捉影",
+            "account":"eagertolight",
+            "QRcodes": "img/circle/weixin.png",
+            "myPlace":"广州市天河区珠吉街道",
+            "gender": "男",
+            "city": "广东 广州",
+            "personalSign": "很高兴遇到你。",
+            "showWall":"img/circle/show_wall.jpg"
+
+        },
+      {
+        "id": "8",
+        "head": "img/headpic/libai.jpg",
+        "name": "李白",
+        "account":"libai",
+        "QRcodes": "img/circle/weixin.png",
+        "myPlace":"大唐长安市长安街",
+        "gender": "男",
+        "city": "唐 长安",
+        "personalSign": "酒逢知己千杯少。",
+        "showWall":"img/circle/show_wall.jpg"
+
+      },
+      {
+        "id": "1",
+        "head": "img/headpic/xiaoming.jpg",
+        "name": "小明",
+        "account":"xiaoming",
+        "QRcodes": "img/circle/weixin.png",
+        "myPlace":"北京市朝阳区红星小学",
+        "gender": "男",
+        "city": "北京 朝阳",
+        "personalSign": "我叫小明。",
+        "showWall":"img/circle/show_wall.jpg"
+      },
+      {
+        "id": "7",
+        "head": "img/headpic/xiaoming.jpg",
+        "name": "老司机",
+        "account":"xiaoming",
+        "QRcodes": "img/circle/weixin.png",
+        "myPlace":"北京市朝阳区红星小学",
+        "gender": "男",
+        "city": "北京 朝阳",
+        "personalSign": "我叫小明。",
+        "showWall":"img/circle/show_wall.jpg"
+      },
+      {
+        "id": "2",
+        "head": "img/headpic/xiaoming.jpg",
+        "name": "老王",
+        "account":"xiaoming",
+        "QRcodes": "img/circle/weixin.png",
+        "myPlace":"北京市朝阳区红星小学",
+        "gender": "男",
+        "city": "北京 朝阳",
+        "personalSign": "我叫小明。",
+        "showWall":"img/circle/show_wall.jpg"
+      },
+      {
+        "id": "6",
+        "head": "img/headpic/xiaoming.jpg",
+        "name": "刘德华",
+        "account":"xiaoming",
+        "QRcodes": "img/circle/weixin.png",
+        "myPlace":"北京市朝阳区红星小学",
+        "gender": "男",
+        "city": "北京 朝阳",
+        "personalSign": "我叫小明。",
+        "showWall":"img/circle/show_wall.jpg"
+      }
+    ]
+}

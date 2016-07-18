@@ -1,22 +1,29 @@
 angular.module('weixin.controllers', [])
 
-.controller('findCtrl', function($scope, $state) {
-    $scope.onSwipeLeft = function() {
-        $state.go("tab.setting");
+//搜索模块
+.controller('searchCtrl', function($scope, $state,$ionicHistory,$ionicViewSwitcher) {
+    $scope.goBack = function() {
+        if($ionicHistory.backView()){
+            $ionicHistory.goBack();
+            $ionicViewSwitcher.nextDirection("back");
+        }
     };
-    $scope.onSwipeRight = function() {
-        $state.go("tab.friends");
-    };
-    $scope.onFriendsCircle = function() {
-        $state.go("friendsCircle");
-    };
-})
 
-.controller('messageCtrl', function($scope, $state, $ionicPopup, localStorageService, messageService,$timeout) {
+    $scope.$on("$ionicView.beforeEnter", function() {
+        $scope.messages = messageService.getAllMessages();
+        $scope.userinfo = response.data.userinfo;
+    });
+  }
+)
+/* --------分割线-------*/
 
+//消息模块
+.controller('messageCtrl', function($scope, $state, $ionicPopup, localStorageService, messageService,$timeout,$ionicViewSwitcher) {
     $scope.onSwipeLeft = function() {
         $state.go("tab.friends");
+        $ionicViewSwitcher.nextDirection("forward");
     };
+
     $scope.popupMessageOpthins = function(message) {
         $scope.popup.index = $scope.messages.indexOf(message);
         $scope.popup.optionsPopup = $ionicPopup.show({
@@ -25,6 +32,7 @@ angular.module('weixin.controllers', [])
         });
         $scope.popup.isPopup = true;
     };
+
     $scope.markMessage = function() {
         var index = $scope.popup.index;
         var message = $scope.messages[index];
@@ -39,6 +47,7 @@ angular.module('weixin.controllers', [])
         $scope.popup.isPopup = false;
         messageService.updateMessage(message);
     };
+
     $scope.deleteMessage = function() {
         var index = $scope.popup.index;
         var message = $scope.messages[index];
@@ -48,6 +57,7 @@ angular.module('weixin.controllers', [])
         messageService.deleteMessageId(message.id);
         messageService.clearMessage(message);
     };
+
     $scope.topMessage = function() {
         var index = $scope.popup.index;
         var message = $scope.messages[index];
@@ -60,172 +70,200 @@ angular.module('weixin.controllers', [])
         $scope.popup.isPopup = false;
         messageService.updateMessage(message);
     };
+
     $scope.messageDetils = function(message) {
         $state.go("messageDetail", {
             "messageId": message.id
         });
+        $ionicViewSwitcher.nextDirection("forward");
     };
     $scope.$on("$ionicView.beforeEnter", function(){
         $scope.messages = messageService.getAllMessages();
-      console.log($scope.messages);
         $scope.popup = {
             isPopup: false,
             index: 0
         };
     });
+
     $scope.doRefresh = function() {
-        // console.log("ok");
-        //$scope.messageNum += 5;
         $timeout(function() {
             $scope.messages = messageService.getAllMessages();
             $scope.$broadcast('scroll.refreshComplete');
         }, 200);
     };
-
 })
+//消息详情页
+.controller('messageDetailCtrl', function($scope, $stateParams, messageService, $ionicScrollDelegate, $timeout,dateService,localStorageService) {
+    var viewScroll = $ionicScrollDelegate.$getByHandle('messageDetailsScroll');
 
-.controller('friendsCtrl', function($scope, $state) {
+    $scope.doRefresh = function() {
+        $scope.messageNum += 5;
+        $timeout(function() {
+            $scope.messageDetils = messageService.getAmountMessageById($scope.messageNum,
+                $stateParams.messageId);
+            $scope.$broadcast('scroll.refreshComplete');
+        }, 200);
+    };
+
+    $scope.$on("$ionicView.beforeEnter", function() {
+        $scope.message = messageService.getMessageById($stateParams.messageId);
+        $scope.message.noReadMessages = 0;
+        $scope.message.showHints = false;
+        messageService.updateMessage($scope.message);
+        $scope.messageNum = 10;
+        $scope.messageDetils = messageService.getAmountMessageById($scope.messageNum,
+            $stateParams.messageId);
+      console.log($scope.messageDetils);
+        $timeout(function() {
+            viewScroll.scrollBottom();
+        }, 0);
+    });
+    //以中文？开头则为对方发送，否则为自己发送
+    $scope.sendMessage=function(content){
+        var nowDate=dateService.getNowDate();
+      var date=new Date;
+        var send_message;
+        var isFromMe=true;
+      var send_time=nowDate.year+'-'+(nowDate.month+1)+'-'+nowDate.day+' '+nowDate.hour+':'+nowDate.minute+':'+nowDate.second;
+        //如果以中文？开头则视为对方发送
+        if(/^\？/g.test(content)){
+            content=content.replace(/^\？{1}/g,"");
+            isFromMe=false;
+        }
+        send_message={
+          "isFromeMe": isFromMe,
+          "content": content,
+          "time": send_time
+        };
+        $scope.messageDetils.push(send_message);
+        viewScroll.scrollBottom();
+        $scope.send_content="";
+      $scope.message.message=$scope.messageDetils;
+      $scope.message.lastMessage= {
+        "originalTime": send_time,
+          "time": "",
+          "timeFrome1970": date.getTime(),
+          "content": content,
+          "isFromeMe": isFromMe
+      };
+      localStorageService.update("message_"+$stateParams.messageId,$scope.message);
+
+    };
+    //监听键盘弹出事件，键盘弹出，viewScroll滚动至底部
+    window.addEventListener("native.keyboardshow", function(e){
+        console.log("keyboardShow");
+        viewScroll.scrollBottom();
+    });
+  }
+)
+/* --------分割线-------*/
+
+//通讯录模块
+.controller('friendsCtrl', function($scope, $state,$ionicViewSwitcher) {
     $scope.onSwipeLeft = function() {
         $state.go("tab.find");
+        $ionicViewSwitcher.nextDirection("forward");
     };
     $scope.onSwipeRight = function() {
         $state.go("tab.message");
+        $ionicViewSwitcher.nextDirection("back");
     };
     $scope.contacts_right_bar_swipe = function(e){
         console.log(e);
     };
 })
+/* --------分割线-------*/
 
-.controller('settingCtrl', ['$scope','$state','userService','$http',
-    function($scope, $state,userService,$http) {
+//发现模块
+.controller('findCtrl', function($scope, $state,$ionicViewSwitcher) {
+    $scope.onSwipeLeft = function() {
+        $state.go("tab.setting");
+        $ionicViewSwitcher.nextDirection("forward");
+    };
+    $scope.onSwipeRight = function() {
+        $state.go("tab.friends");
+        $ionicViewSwitcher.nextDirection("back");
+    };
+    $scope.onFriendsCircle = function() {
+        $state.go("friendsCircle");
+        $ionicViewSwitcher.nextDirection("forward");
+        //或者标签上设置nav-direction="back"/"forward"
+    };
+})
+//朋友圈
+.controller('friendsCircleCtrl', function($scope, $state,$http,$timeout,userInfoService,friendCircleService,$ionicViewSwitcher) {
+    $scope.$on("$ionicView.beforeEnter", function() {
+      var master="master";
+      $scope.masterinfo=userInfoService.getUserInfoById(master);
+      $scope.circlestates=friendCircleService.getCircleState();
+    });
+    $scope.doRefresh=function() {
+        $timeout(function(){
+            $http.get("data/json/circlestates.json").then(function(response){
+              friendCircleService.init(response.data.circlestates);
+            });
+          $scope.circlestates=friendCircleService.getCircleState();
+          $scope.$broadcast('scroll.refreshComplete');
+        },200);
+    };
+  }
+)
+ /* --------分割线-------*/
+
+//设置模块
+.controller('settingCtrl', function($scope, $state,userInfoService,$http,$ionicViewSwitcher) {
+        $scope.$on("$ionicView.beforeEnter", function() {
+          var master="master";
+          $scope.masterinfo=userInfoService.getUserInfoById(master)
+        });
         $scope.onSwipeRight = function() {
             $state.go("tab.find");
+            $ionicViewSwitcher.nextDirection("back");
         };
-      $scope.onMasterInfo=function() {
-        $state.go("masterInfo");
-      };
-        $scope.$on("$ionicView.beforeEnter", function() {
-
-        });
-        $http.get("data/json/userinfo.json").then(function(response){
-                $scope.userinfos=response.data.userinfo;
-            });
+        $scope.onMasterInfo=function() {
+            $state.go("masterInfo");
+            $ionicViewSwitcher.nextDirection("forward");
+        };
+        $scope.openWeibo=function(){
+            window.open("http://weibo.com/rockmist","_system");
+        };
     }
-])
-
-.controller('friendsCircleCtrl', ['$scope','$state','$http','$timeout',
-    function($scope, $state,$http,$timeout) {
-        $scope.$on("$ionicView.beforeEnter", function() {
-
-        });
-        $scope.doRefresh=function() {
-          $timeout(function(){
-            $http.get("data/json/circlestates.json").then(function(response){
-              $scope.circlestates=response.data.circlestates;
-              $scope.$broadcast('scroll.refreshComplete');
-            });
-          },200);
-        };
-
-        $http.get("data/json/circlestates.json").then(function(response){
-                $scope.circlestates=response.data.circlestates;
-            });
-        $http.get("data/json/userinfo.json").then(function(response){
-                $scope.userinfos=response.data.userinfo;
-            });
-    }
-])
-
-.controller('messageDetailCtrl', ['$scope', '$stateParams',
-    'messageService', '$ionicScrollDelegate', '$timeout','dateService',
-    function($scope, $stateParams, messageService, $ionicScrollDelegate, $timeout,dateService) {
-        var viewScroll = $ionicScrollDelegate.$getByHandle('messageDetailsScroll');
-
-        $scope.doRefresh = function() {
-            $scope.messageNum += 5;
-            $timeout(function() {
-                $scope.messageDetils = messageService.getAmountMessageById($scope.messageNum,
-                    $stateParams.messageId);
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 200);
-        };
-
-        $scope.$on("$ionicView.beforeEnter", function() {
-            $scope.message = messageService.getMessageById($stateParams.messageId);
-            $scope.message.noReadMessages = 0;
-            $scope.message.showHints = false;
-            messageService.updateMessage($scope.message);
-            $scope.messageNum = 10;
-            $scope.messageDetils = messageService.getAmountMessageById($scope.messageNum,
-                $stateParams.messageId);
-            $timeout(function() {
-                viewScroll.scrollBottom();
-            }, 0);
-        });
-      $scope.sendMessage=function(content){
-        var nowDate=dateService.getNowDate();
-        var send_content={
-          "isFromeMe": true,
-          "content": content,
-          "time": nowDate.year+'-'+nowDate.month+'-'+nowDate.day+' '+nowDate.hour+':'+nowDate.minute+':'+nowDate.second
-        };
-        $scope.messageDetils.push(send_content);
-        console.log($scope.messageDetils);
-        viewScroll.scrollBottom();
-        $scope.send_content="";
-      };
-
-        window.addEventListener("native.keyboardshow", function(e){
-          console.log("keyboardShow");
-            viewScroll.scrollBottom();
-        });
-    }
-])
-.controller('searchCtrl', ['$scope','$state','$ionicHistory',
-  function($scope, $state,$ionicHistory) {
-    $scope.goBack = function() {
-      $ionicHistory.backView();
-      $ionicHistory.goBack();
-    };
-    $scope.$on("$ionicView.beforeEnter", function() {
-      $scope.messages = messageService.getAllMessages();
-      console.log($scope.messages);
-      $scope.userinfo = response.data.userinfo;
-
-    });
-  }
-])
-.controller('masterInfoCtrl',
-  function($scope, $state,$ionicHistory,$http,$ionicPopup) {
-    $scope.goBack = function () {
-      $ionicHistory.backView();
-      $ionicHistory.goBack();
-    };
+)
+  //登录用户信息页
+.controller('masterInfoCtrl', function($scope, $state,$ionicHistory,$http,$ionicPopup,userInfoService) {
     $scope.$on("$ionicView.beforeEnter", function () {
-      $scope.popup = {
-        isPopup: false
-      };
-    });
-    $http.get("data/json/userinfo.json").then(function (response) {
-      $scope.userinfos = response.data.userinfo;
+      var master="master";
+      $scope.masterinfo=userInfoService.getUserInfoById(master)
+        $scope.popup = {
+          isPopup: false
+        };
+
     });
 
     $scope.genderPopup = function () {
-      $scope.popup.optionsPopup = $ionicPopup.show({
-        templateUrl: "templates/setting/gender-popup.html",
-        scope: $scope
-      });
-      $scope.popup.isPopup = true;
+        $scope.popup.optionsPopup = $ionicPopup.show({
+            templateUrl: "templates/setting/gender-popup.html",
+            scope: $scope
+        });
+        $scope.popup.isPopup = true;
     };
+
     $scope.genderToggle=function(value){
-      $scope.popup.optionsPopup.close();
-      $scope.popup.isPopup = false;
-      if(value==1){
-        $scope.userinfos[0].gender="男"
-      }else {
-        $scope.userinfos[0].gender = "女"
-      }
+        $scope.popup.optionsPopup.close();
+        $scope.popup.isPopup = false;
+        if(value==1){
+            $scope.masterinfo.gender="男";
+        }else {
+            $scope.masterinfo.gender = "女";
+        }
     }
   }
+)
+/* --------分割线-------*/
 
-);
+
+
+
+
+
+

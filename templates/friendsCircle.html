@@ -2,7 +2,7 @@
 <ion-view class="weixin-bg-white animated bounceInLeft ">
   <ion-header-bar align-title="left" class="bar-dark">
     <div class="buttons">
-      <button class="button button-icon  text-lg" ui-sref="tab.find" >
+      <button class="button button-icon  text-lg" ui-sref="tab.find" nav-direction="back">
         <i class="ion-arrow-left-c"></i>
       </button>
     </div>
@@ -17,14 +17,14 @@
     <ion-refresher pulling-text="下拉刷新"  on-refresh="doRefresh()"
                    pulling-icon="ion-arrow-down-c"></ion-refresher>
     <div class="user-show-wall" >
-      <img class="user-pic-show" ng-src="{{userinfos[0].showWall}}" >
+      <img class="user-pic-show" ng-src="{{masterinfo.showWall}}" >
       <div class="user-info">
-        <img ng-src="{{userinfos[0].head}}" class="weixin-user-pic">
-        <p ng-bind="userinfos[0].name"></p>
+        <img ng-src="{{masterinfo.head}}" class="weixin-user-pic">
+        <p ng-bind="masterinfo.name"></p>
       </div>
     </div>
     <ion-list class="weixin-list ">
-      <ion-item class="weixin-item item-adaption weixin-bg-white" ng-repeat="circlestate in circlestates" ng-class="{top-border-none:$index==1}">
+      <ion-item class="weixin-item item-adaption weixin-bg-white" ng-repeat="circlestate in circlestates" ng-class="{topBorderNone:$index==0}">
         <div class="weixin-headpic">
           <img ng-src="{{circlestate.head}}">
         </div>
