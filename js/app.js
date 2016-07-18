@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('weixin', ['ionic', 'weixin.controllers', 'weixin.routes',
-    'weixin.services', 'weixin.directives', 'monospaced.elastic','ngAnimate'
+    'weixin.services', 'weixin.directives', 'monospaced.elastic'
 ])
 
 .config(['$ionicConfigProvider', function($ionicConfigProvider) {
@@ -40,7 +40,7 @@ angular.module('weixin', ['ionic', 'weixin.controllers', 'weixin.routes',
   $ionicPlatform.registerBackButtonAction(function (e) {
     e.preventDefault();
     // 回到首页则选择是否退出app?
-    if ($location.path() == '/tab/message'||$location.path() == '/tab/friends'||$location.path() == '/tab/find'
+    if ($location.path() == '/tab/message'||$location.path() == '/tab/friend'||$location.path() == '/tab/find'
       ||$location.path() == '/tab/setting') {
       showConfirm();
     } else if ($ionicHistory.backView()) {

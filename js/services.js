@@ -285,10 +285,10 @@ angular.module('weixin.services', [])
           var length=stateID.length;
           var circleStates=new Array();
           for(i;i<length;i++){
-            var circleState=localStorageService.get("state_"+stateID[i]);
+            var circleState=localStorageService.get("state_"+stateID[i].id);
             circleStates.push(circleState);
           }
-            return circleStates;
+          return circleStates;
         }
     };
 }]);

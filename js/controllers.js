@@ -1,7 +1,7 @@
 angular.module('weixin.controllers', [])
 
 //搜索模块
-.controller('searchCtrl', function($scope, $state,$ionicHistory,$ionicViewSwitcher) {
+.controller('searchCtrl', function($scope, $state,$ionicHistory,$ionicViewSwitcher,messageService) {
     $scope.goBack = function() {
         if($ionicHistory.backView()){
             $ionicHistory.goBack();
@@ -11,7 +11,7 @@ angular.module('weixin.controllers', [])
 
     $scope.$on("$ionicView.beforeEnter", function() {
         $scope.messages = messageService.getAllMessages();
-        $scope.userinfo = response.data.userinfo;
+        angular.element(document.querySelector("#search")).attr("autofocus",true);
     });
   }
 )
@@ -20,14 +20,14 @@ angular.module('weixin.controllers', [])
 //消息模块
 .controller('messageCtrl', function($scope, $state, $ionicPopup, localStorageService, messageService,$timeout,$ionicViewSwitcher) {
     $scope.onSwipeLeft = function() {
-        $state.go("tab.friends");
+        $state.go("tab.friend");
         $ionicViewSwitcher.nextDirection("forward");
     };
 
     $scope.popupMessageOpthins = function(message) {
         $scope.popup.index = $scope.messages.indexOf(message);
         $scope.popup.optionsPopup = $ionicPopup.show({
-            templateUrl: "templates/popup.html",
+            templateUrl: "templates/message/popup.html",
             scope: $scope
         });
         $scope.popup.isPopup = true;
@@ -159,7 +159,7 @@ angular.module('weixin.controllers', [])
 /* --------分割线-------*/
 
 //通讯录模块
-.controller('friendsCtrl', function($scope, $state,$ionicViewSwitcher) {
+.controller('friendCtrl', function($scope, $state,$ionicViewSwitcher) {
     $scope.onSwipeLeft = function() {
         $state.go("tab.find");
         $ionicViewSwitcher.nextDirection("forward");
@@ -171,6 +171,9 @@ angular.module('weixin.controllers', [])
     $scope.contacts_right_bar_swipe = function(e){
         console.log(e);
     };
+  $scope.$on("$ionicView.beforeEnter", function(){
+    console.log("ready");
+  });
 })
 /* --------分割线-------*/
 
@@ -181,7 +184,7 @@ angular.module('weixin.controllers', [])
         $ionicViewSwitcher.nextDirection("forward");
     };
     $scope.onSwipeRight = function() {
-        $state.go("tab.friends");
+        $state.go("tab.friend");
         $ionicViewSwitcher.nextDirection("back");
     };
     $scope.onFriendsCircle = function() {
@@ -196,6 +199,7 @@ angular.module('weixin.controllers', [])
       var master="master";
       $scope.masterinfo=userInfoService.getUserInfoById(master);
       $scope.circlestates=friendCircleService.getCircleState();
+      //console.log($scope.circlestates);
     });
     $scope.doRefresh=function() {
         $timeout(function(){

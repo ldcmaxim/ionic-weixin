@@ -8,6 +8,11 @@ angular.module('weixin.routes', [])
             abstract: true,
             templateUrl: "templates/tabs.html"
         })
+        .state('search', {
+          url: '/search',
+          templateUrl: 'templates/search.html',
+          controller: "searchCtrl"
+        })
         .state('tab.message', {
             url: '/message',
             views: {
@@ -18,16 +23,16 @@ angular.module('weixin.routes', [])
             }
         })
         .state('messageDetail', {
-            url: '/messageDetail/:messageId',
-            templateUrl: "templates/message-detail.html",
+            url: 'tab/message/messageDetail/:messageId',
+            templateUrl: "templates/message/message-detail.html",
             controller: "messageDetailCtrl"
         })
-        .state('tab.friends', {
-            url: '/friends',
+        .state('tab.friend', {
+            url: '/friend',
             views: {
-                'tab-friends': {
-                    templateUrl: 'templates/tab-friends.html',
-                    controller: "friendsCtrl"
+                'tab-friend': {
+                    templateUrl: 'templates/tab-friend.html',
+                    controller: "friendCtrl"
                 }
             }
         })
@@ -41,8 +46,8 @@ angular.module('weixin.routes', [])
             }
         })
         .state('friendsCircle', {
-            url: '/friendsCircle',
-            templateUrl: 'templates/friendsCircle.html',
+            url: '/tab/find/friendsCircle',
+            templateUrl: 'templates/find/friendsCircle.html',
             controller: "friendsCircleCtrl"
         })
         .state('tab.setting', {
@@ -54,14 +59,9 @@ angular.module('weixin.routes', [])
                 }
             }
         })
-        .state('search', {
-            url: '/search',
-            templateUrl: 'templates/search.html',
-            controller: "searchCtrl"
-        })
         .state('masterInfo', {
-            url: '/masterInfo',
-            templateUrl: 'templates/masterInfo.html',
+            url: '/tab/setting/masterinfo',
+            templateUrl: 'templates/setting/masterinfo.html',
             controller: "masterInfoCtrl"
         });
 
